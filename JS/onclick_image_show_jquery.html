@@ -1,0 +1,25 @@
+<!-- COPY TO HTML BODY  -->
+<div class="mb-3">
+    <label for="photo" class="form-label">Upload Photo</label>
+    <input class="form-control" type="file" id="photo" name="photo">
+</div>
+<div class="mb-3">
+    <img width="70" height="70" class="rounded-circle" src="" alt="profile" id="imgPreview"> 
+</div>
+
+
+
+
+<!-- COPY TO JAVASCRIPT SECTION  -->
+<script>
+    $(document).ready(() => {
+        $("#photo").change(function () {
+            const file = this.files[0];
+                let reader = new FileReader();
+                reader.onload = function (event) {
+                    $("#imgPreview").attr("src", event.target.result);
+                };
+                reader.readAsDataURL(file);
+        });
+    });
+</script>

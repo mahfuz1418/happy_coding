@@ -1,0 +1,26 @@
+
+<!-- COPY TO HTML BODY  -->
+<div class="form-group">
+    <img  style="width: 70px; height: 70px; border-radius: 50%; border: 2px solid gray" src="" id="image" ><br>
+    <label for="photo">Photo</label>
+    <input type="file" class="form-control" id="photo"  name="photo" accept="image/*" onchange="readURL(this)" >
+</div>
+
+
+
+
+
+<!-- COPY TO JAVASCRIPT SECTION  -->
+<script type="text/javascript">
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#image')
+                    .attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+</script>
