@@ -20,7 +20,8 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js
 
 <!-- Some example with jQuery code  -->
 
-<!-- For delete message jQuery code  -->
+<!-- For delete message HTML & jQuery code  -->
+<button value="{{ route('delete.employee', ['id' => $data->id]) }}" class="btn btn-danger delete">Delete</button>
     <script>
             $(document).ready(function(){
                 $('.delete').click(function(){
@@ -34,10 +35,12 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js
                     confirmButtonText: 'Yes, delete it!'
                     }).then((result) => {
                             if (result.isConfirmed) {
-                                Swal.fire(
-                                'Deleted!',
-                                'Your file has been deleted.',
-                                'success'
+                                window.location.assign($(this).val())
+                                // Swal.fire(
+                                // 'Deleted!',
+                                // 'Your file has been deleted.',
+                                // 'success'
+                                // )    
                         )
                     }
                     })
